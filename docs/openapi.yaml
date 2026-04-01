@@ -1,0 +1,286 @@
+openapi: 3.0.3
+info:
+  title: eCommerce REST API
+  version: 1.0.0
+  description: RESTful API for an eCommerce application built with Laravel, MySQL, layered services, repositories, JWT auth, and RBAC.
+servers:
+  - url: /api/v1
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AuthRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string, format: password }
+    RegisterRequest:
+      type: object
+      required: [name, email, role, password, password_confirmation]
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        role: { type: string, enum: [admin, seller, customer, delivery_person] }
+        phone: { type: string, nullable: true }
+        address: { type: string, nullable: true }
+        password: { type: string, format: password }
+        password_confirmation: { type: string, format: password }
+    ProductRequest:
+      type: object
+      required: [name, price, stock]
+      properties:
+        name: { type: string }
+        description: { type: string, nullable: true }
+        price: { type: number, format: float }
+        stock: { type: integer }
+        is_active: { type: boolean }
+        image: { type: string, format: binary }
+    CartRequest:
+      type: object
+      required: [product_id, quantity]
+      properties:
+        product_id: { type: integer }
+        quantity: { type: integer }
+    OrderRequest:
+      type: object
+      required: [recipient_name, recipient_phone, shipping_address, shipping_city, shipping_state, shipping_postal_code, shipping_country]
+      properties:
+        recipient_name: { type: string }
+        recipient_phone: { type: string }
+        shipping_address: { type: string }
+        shipping_city: { type: string }
+        shipping_state: { type: string }
+        shipping_postal_code: { type: string }
+        shipping_country: { type: string }
+        notes: { type: string, nullable: true }
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Register any supported role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RegisterRequest' }
+      responses:
+        '201': { description: Registered successfully }
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login and receive JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AuthRequest' }
+      responses:
+        '200': { description: Logged in successfully }
+  /auth/logout:
+    post:
+      tags: [Auth]
+      security: [{ bearerAuth: [] }]
+      summary: Logout current user
+      responses:
+        '200': { description: Logged out successfully }
+  /auth/profile:
+    get:
+      tags: [Auth]
+      security: [{ bearerAuth: [] }]
+      summary: Get authenticated user profile
+      responses:
+        '200': { description: Profile fetched }
+  /products:
+    get:
+      tags: [Catalog]
+      summary: Get paginated product listing
+      parameters:
+        - in: query
+          name: search
+          schema: { type: string }
+        - in: query
+          name: seller_id
+          schema: { type: integer }
+      responses:
+        '200': { description: Product list }
+  /products/{product}:
+    get:
+      tags: [Catalog]
+      summary: Get product details
+      parameters:
+        - in: path
+          name: product
+          required: true
+          schema: { type: integer }
+      responses:
+        '200': { description: Product details }
+  /admin/users:
+    get:
+      tags: [Admin]
+      security: [{ bearerAuth: [] }]
+      summary: List all users
+      responses:
+        '200': { description: Users fetched }
+    post:
+      tags: [Admin]
+      security: [{ bearerAuth: [] }]
+      summary: Create a user in any role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RegisterRequest' }
+      responses:
+        '201': { description: User created }
+  /admin/products:
+    get:
+      tags: [Admin]
+      security: [{ bearerAuth: [] }]
+      summary: List all products
+      responses:
+        '200': { description: Products fetched }
+  /admin/orders:
+    get:
+      tags: [Admin]
+      security: [{ bearerAuth: [] }]
+      summary: List all orders
+      responses:
+        '200': { description: Orders fetched }
+  /admin/orders/{order}/assign-delivery:
+    patch:
+      tags: [Admin]
+      security: [{ bearerAuth: [] }]
+      summary: Assign order to a delivery person
+      parameters:
+        - in: path
+          name: order
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [delivery_person_id]
+              properties:
+                delivery_person_id: { type: integer }
+      responses:
+        '200': { description: Delivery assigned }
+  /seller/products:
+    get:
+      tags: [Seller]
+      security: [{ bearerAuth: [] }]
+      summary: List authenticated seller products
+      responses:
+        '200': { description: Seller products fetched }
+    post:
+      tags: [Seller]
+      security: [{ bearerAuth: [] }]
+      summary: Create product with image upload
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { $ref: '#/components/schemas/ProductRequest' }
+      responses:
+        '201': { description: Product created }
+  /seller/products/{product}:
+    patch:
+      tags: [Seller]
+      security: [{ bearerAuth: [] }]
+      summary: Update product
+      parameters:
+        - in: path
+          name: product
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { $ref: '#/components/schemas/ProductRequest' }
+      responses:
+        '200': { description: Product updated }
+    delete:
+      tags: [Seller]
+      security: [{ bearerAuth: [] }]
+      summary: Delete product
+      parameters:
+        - in: path
+          name: product
+          required: true
+          schema: { type: integer }
+      responses:
+        '200': { description: Product deleted }
+  /customer/cart:
+    get:
+      tags: [Customer]
+      security: [{ bearerAuth: [] }]
+      summary: View cart
+      responses:
+        '200': { description: Cart fetched }
+  /customer/cart/items:
+    post:
+      tags: [Customer]
+      security: [{ bearerAuth: [] }]
+      summary: Add item to cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CartRequest' }
+      responses:
+        '200': { description: Cart updated }
+  /customer/orders:
+    get:
+      tags: [Customer]
+      security: [{ bearerAuth: [] }]
+      summary: List customer orders
+      responses:
+        '200': { description: Orders fetched }
+    post:
+      tags: [Customer]
+      security: [{ bearerAuth: [] }]
+      summary: Place order from cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/OrderRequest' }
+      responses:
+        '201': { description: Order placed }
+  /delivery/orders:
+    get:
+      tags: [Delivery]
+      security: [{ bearerAuth: [] }]
+      summary: View assigned orders
+      responses:
+        '200': { description: Assigned orders fetched }
+  /delivery/orders/{order}/status:
+    patch:
+      tags: [Delivery]
+      security: [{ bearerAuth: [] }]
+      summary: Update assigned delivery status
+      parameters:
+        - in: path
+          name: order
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status:
+                  type: string
+                  enum: [assigned, out_for_delivery, delivered]
+      responses:
+        '200': { description: Delivery status updated }
