@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmation | SwiftMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002111",
+                        "tertiary-container": "#9e6100",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#005231",
+                        "outline-variant": "#c2c6d9",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#59fead",
+                        "tertiary-fixed": "#ffddba",
+                        "on-tertiary-container": "#fff1e5",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0061ff",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f1f2ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007146",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0052dc",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#56fbab",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#424656",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006d43",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#31e193",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "outline": "#737687",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary": "#004bca",
+                        "tertiary": "#7d4b00",
+                        "on-tertiary-fixed": "#2b1700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flat-no-shadows { box-shadow: none !important; }
+        .ambient-lift { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-xl">
+<span class="font-h2 text-h2 font-bold text-primary">SwiftMarket</span>
+<div class="hidden lg:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Deals</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Sell</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Help</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<button class="flex items-center gap-xs px-md py-sm rounded-lg text-on-surface hover:bg-surface-variant transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md text-label-md">Cart</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a young adult with a friendly expression, set against a clean, out-of-focus urban background. The lighting is bright and natural, reflecting a high-end corporate lifestyle aesthetic. The person is wearing a minimalist navy blue blazer over a crisp white shirt, aligning with the modern professional brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD79BBHTdGVmePFfd3OeUKVqn9MAXfY5UZ2B-J5WtTqtkI5CjqwoCE0Dplb1MPKYwBqHRm6MBF4gDn7CNTGeXXvJUHqTcBMpFSA1SrFQPERIMRe8wA3MhFSWEwCqMLpSFfk28jXYISz1eQH8gtabRI2E8XwF9ITsKEhq-c8AhZ5VoEif-syeUF0vj2uUYmW0__jBNFmbDjbFDqfmsprFQ_zXFV7RIfJ3aFyocHov6rx1AXe5buQxrqACzqX5KEQqCbBDodMktQFYp4"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mt-16 min-h-screen pt-xxl pb-xxl px-lg max-w-container-max mx-auto">
+<!-- Success Confirmation Section -->
+<section class="max-w-3xl mx-auto text-center mb-xxl">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-secondary-container text-on-secondary-container rounded-full mb-lg ambient-lift">
+<span class="material-symbols-outlined text-[48px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface mb-sm">Thank you for your order!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">Your confirmation email and receipt are on their way to you.</p>
+<!-- Order Details Bento Card -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md text-left bg-surface-container-lowest p-xl rounded-xl border border-outline-variant ambient-lift">
+<div class="space-y-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Order Number</p>
+<p class="font-code text-code text-primary font-bold">#SW-928471105</p>
+</div>
+<div class="space-y-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Delivery Estimate</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Oct 24 - Oct 26, 2024</p>
+</div>
+<div class="space-y-xs">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Shipping Method</p>
+<p class="font-body-md text-body-md text-on-surface">Express Priority Delivery</p>
+</div>
+</div>
+<div class="mt-xl flex flex-col sm:flex-row gap-md justify-center">
+<button class="bg-primary text-on-primary px-xl py-md rounded-lg font-label-md text-label-md hover:bg-surface-tint transition-all active:scale-[0.98] flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                    Track Order
+                </button>
+<button class="bg-surface-container-high text-on-surface px-xl py-md rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-all active:scale-[0.98] flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                    Continue Shopping
+                </button>
+</div>
+</section>
+<!-- "You might also like" Recommendations -->
+<section class="mt-xxl">
+<div class="flex items-center justify-between mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface">You might also like</h2>
+<a class="text-primary font-label-md text-label-md flex items-center gap-xs hover:underline" href="#">
+                    View all recommendations
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Recommendation Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:ambient-lift transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Minimalist Watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, minimalist wristwatch with a matte white face and a light tan leather strap, displayed against a soft gray architectural background. The scene is bathed in diffuse, cool morning light, creating a high-end commercial feel. The overall aesthetic is clean, professional, and reflects a modern corporate lifestyle with sharp focus and premium textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC05pExqAO6_LRbD-6l4joGOBvZ2DqhdUGNRyrPd9YXjFZ_5IGpqmEb0AiHCwS2_wbUKnYzv4ns6MOWxB5D_hkegcIZR8boWo4A6Z_fFKSjRRAtQzuxf9kOvEi8BhSd1B9JhGiIK_53v9qck4Q0CBhmjnokC0SvQA89gMTywKFliawvJd6ZCVj-kJMHTXKzbEPSC2R21_CTa-AqWlyhfTmxnO3e7P7sem_JTQtBDCwtDXf7JjPeyJtc7AF23w7ASU8Tqtjk-Fyjmn4"/>
+<button class="absolute top-md right-md p-sm bg-surface/90 backdrop-blur rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">ACCESSORIES</p>
+<h3 class="font-h3 text-h3 text-on-surface mb-sm truncate">Minimalist Chrono Watch</h3>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md font-bold text-primary">$189.00</p>
+<button class="text-primary p-xs hover:bg-primary-container/10 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:ambient-lift transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Wireless Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Premium wireless over-ear headphones in charcoal black, resting on a clean wooden desk surface. The background features a blurred modern office space with soft lighting. The image captures the high-fidelity textures of the leather earcups and brushed metal frame, projecting a sense of professional reliability and technological sophistication in a bright light-mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxMPm3iW5cYs5gBUOP_SPUKmW_16QROXEaMaotIeVz0Vt-R2uE9jppkXVUJIW86BZcorfi29q7_azZ6LZA9bSdPMUNNFD73dz-adFB5MZvoE9z5RRcCtmX4MBrZJppAmHYY9hwlLeT04mwA2aWu2G4bK1YyNpE22DBWuaAFx9Me7DiBwOuunK1_2xiST_R8bqSrVY9VqvElkrpYHpReo06jV8DEuZotW7_1lX7lKX_NaqiTzEEXdoGmbtse8Zi1eFBkdEhXMb2o10"/>
+<button class="absolute top-md right-md p-sm bg-surface/90 backdrop-blur rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">ELECTRONICS</p>
+<h3 class="font-h3 text-h3 text-on-surface mb-sm truncate">Studio Wireless Pro</h3>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md font-bold text-primary">$299.00</p>
+<button class="text-primary p-xs hover:bg-primary-container/10 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:ambient-lift transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Running Shoes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of vibrant red performance running shoes displayed on a minimalist white pedestal. The lighting is high-key and surgical, emphasizing the intricate mesh texture and aerodynamic silhouette. The background is a clean, neutral gradient of light blue, maintaining a professional commerce aesthetic that highlights the energy and craftsmanship of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9p3rHIO89aEbNamTQFkJmrTl67IAMoaDACquQ7Yu2iejGzh_WBlfZPL9oQ6T8bvt7G8R3qILy7spL5oDDIpwpkK7EYXC8HFOYGawGaNVieU0AtwNCsGlQNToMJILQZJnvxaSBCia9-tQkRne__fky_t-X1u-FjWsR_vHmpRPhHBCZbPIFTmkcKvTKXC8KKHQvdKOfcVQiesfQ9iWIzeMFPaDbPdW6FxDg9L38TCBSrAlgJYaY5Sgx7m4YMUSpyY1K6WHKg_FJYZM"/>
+<button class="absolute top-md right-md p-sm bg-surface/90 backdrop-blur rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">FOOTWEAR</p>
+<h3 class="font-h3 text-h3 text-on-surface mb-sm truncate">Speed-Racer Knit Shoes</h3>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md font-bold text-primary">$145.00</p>
+<button class="text-primary p-xs hover:bg-primary-container/10 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:ambient-lift transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Leather Bag" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality tan leather messenger bag placed in a stylish, minimalist cafe setting. Soft natural light streams through a nearby window, highlighting the rich grain of the leather and the precision of the stitching. The scene is airy and bright, using a palette of warm browns and cool whites to evoke a sense of everyday luxury and professional utility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdqSIzHwdicbfzS7QOkiSeyPcHT0iWYFDdpWufE05BiTK4HPfN_dAeQ0kn7sefcgnDwqFhOyNJKt3tDi4bkiesrYp-SbCa5DL6IdpnskxploQJciqWQXOYZ69kLoHFYIxoZDcqFVwSv5boAt8VFwoQZqe5Du2XGjFcIjyL-SirlptEZHmiY0VCMjAby42IckO5W8ejKltzCN1o3zGLB3E49n00gFVGu-1eR3lkPXTXhfsVIVkfL8WmrQkmGIZpCWzaMYfYgVr3JMg"/>
+<button class="absolute top-md right-md p-sm bg-surface/90 backdrop-blur rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">LIFESTYLE</p>
+<h3 class="font-h3 text-h3 text-on-surface mb-sm truncate">Commuter Leather Tote</h3>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md font-bold text-primary">$210.00</p>
+<button class="text-primary p-xs hover:bg-primary-container/10 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div class="flex flex-col gap-sm text-center md:text-left">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">Premium shopping experience for modern professionals and digital natives worldwide.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors font-semibold" href="#">Sell on SwiftMarket</a>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">
+                © 2024 SwiftMarket eCommerce Group
+            </div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-lg border-t border-outline-variant shadow-md md:hidden flex justify-around items-center px-md py-sm">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+</body></html>

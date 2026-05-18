@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart - SwiftMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002111",
+                        "tertiary-container": "#9e6100",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#005231",
+                        "outline-variant": "#c2c6d9",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#59fead",
+                        "tertiary-fixed": "#ffddba",
+                        "on-tertiary-container": "#fff1e5",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0061ff",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f1f2ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007146",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0052dc",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#56fbab",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#424656",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006d43",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#31e193",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "outline": "#737687",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary": "#004bca",
+                        "tertiary": "#7d4b00",
+                        "on-tertiary-fixed": "#2b1700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9ff;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline flat no shadows">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-md">
+<span class="font-h2 text-h2 font-bold text-primary dark:text-primary-fixed-dim">SwiftMarket</span>
+<nav class="hidden md:flex gap-md">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Deals</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Sell</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex gap-sm">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="favorite">favorite</button>
+</div>
+<div class="flex items-center gap-sm">
+<div class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 font-body-md text-body-md active:scale-[0.98] transition-transform duration-150 flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                        Cart
+                    </div>
+<button class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors">Account</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-xxl pb-xxl px-lg max-w-container-max mx-auto mt-16">
+<div class="flex flex-col lg:flex-row gap-xl">
+<!-- Cart Items Section -->
+<div class="flex-1 space-y-lg">
+<div class="flex items-center justify-between">
+<h1 class="font-h1 text-h1 text-on-surface">Your Cart</h1>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container-high px-md py-xs rounded-full">3 Items</span>
+</div>
+<!-- Product List (Bento-ish/Card Layout) -->
+<div class="space-y-md">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col md:flex-row gap-md hover:shadow-md transition-all">
+<div class="w-full md:w-32 h-32 flex-shrink-0 bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A studio photograph of a premium red athletic sneaker resting on a clean white surface with soft, cinematic studio lighting. The aesthetic is modern and commercial, focusing on the vibrant red texture against a minimal, light background. Professional commercial photography style with high-end detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUFpFJneduh9krRxpcz5yAqupUFZeRCM4BUfZ9OcaS238bVrWPIzMvLXBsvVZy0_1PHvIg34Dc9tHoSnPHEc66K_3npvsEwYcPzZdt5TXXHXFjTq9yQgzOhYnN2KOjHW7vUe6YEExgK-WFR28Ov17BySAlg-KDCt6Lzh2z24lVYHD1w1hUc-L86jgqED6eOs-89hr5y5TYS9azq6Dh2r60xhy5Q4roN07N-o2xKt5xCzPaOaBRVDL-4fHTSv9awnzAcEKd7Q1exug"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Swift Strider Pro - Kinetic Red</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Size: 42 | Color: Kinetic Red</p>
+</div>
+<div class="text-right">
+<p class="font-h3 text-h3 text-primary">$129.00</p>
+<p class="font-label-sm text-label-sm text-secondary font-bold">In Stock</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-md">
+<div class="flex items-center bg-surface-container rounded-lg border border-outline-variant">
+<button class="p-xs hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<span class="px-md font-body-md font-bold">1</span>
+<button class="p-xs hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+<div class="flex gap-md">
+<button class="text-on-surface-variant hover:text-error flex items-center gap-xs font-label-md transition-colors">
+<span class="material-symbols-outlined text-md" data-icon="delete">delete</span> Remove
+                                    </button>
+<button class="text-on-surface-variant hover:text-primary flex items-center gap-xs font-label-md transition-colors">
+<span class="material-symbols-outlined text-md" data-icon="bookmark">bookmark</span> Save for Later
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col md:flex-row gap-md hover:shadow-md transition-all">
+<div class="w-full md:w-32 h-32 flex-shrink-0 bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A luxury silver wristwatch captured in a sharp, high-contrast product shot. The watch has a clean white face and metallic straps, set against a blurred gray architectural background. The lighting is crisp and cool, emphasizing the polished metal surfaces and professional, high-trust corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAaqQQEOsHz01QErGhJl7C_G5kb_gi54BQs9kSVeMS9lOs0jBdyLpXKnduku5RGIrxArbF9KFbdyb_c5AuyAGzUFrjwmkrXmT2WWZrB1XkgkY-_YzC8o2JpQVmGHgIBJH6JUwGN4wP5U9Ndb0IjpwC4ypybG_ssCeiemRKQPCBKiy4J1KkUBYnJ88qI9l6ImNGNbYARHY9IXF9wJBnJ5pgYRpKkH8KE_kBC_6Ky06CTiMWvF0arDJYgiycIXKP0Wt50aTPdrYR3ZQ"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">ChronoMaster Silver Edition</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strap: Stainless Steel</p>
+</div>
+<div class="text-right">
+<p class="font-h3 text-h3 text-primary">$450.00</p>
+<p class="font-label-sm text-label-sm text-secondary font-bold">In Stock</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-md">
+<div class="flex items-center bg-surface-container rounded-lg border border-outline-variant">
+<button class="p-xs hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<span class="px-md font-body-md font-bold">1</span>
+<button class="p-xs hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+<div class="flex gap-md">
+<button class="text-on-surface-variant hover:text-error flex items-center gap-xs font-label-md transition-colors">
+<span class="material-symbols-outlined text-md" data-icon="delete">delete</span> Remove
+                                    </button>
+<button class="text-on-surface-variant hover:text-primary flex items-center gap-xs font-label-md transition-colors">
+<span class="material-symbols-outlined text-md" data-icon="bookmark">bookmark</span> Save for Later
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Saved for Later Section -->
+<div class="pt-xl border-t border-outline-variant">
+<h2 class="font-h2 text-h2 text-on-surface mb-lg">Saved for Later</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Modern high-fidelity wireless headphones in a matte black finish. The headphones are showcased in a moody, low-key lighting environment with subtle blue backlighting to emphasize the sleek contours. The image represents premium technology and professional audio engineering quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD84QwqnW9bkNsQa0YudMUjw1OHi-8CGp_O_nUyN_d-zgRLqPWZpeGn4JLGuDK227KSBNjtLtn3kKeZ94qwK0SDZ3I8stsgkNscnBvJsKVj537tHh6_L6Dnx4YSBOz24vuaABtr0MpKYfKvkhJToWAEsSRgaY5t1Qmr2D0WRr_3orWa7U9JdJZA5Zrl0jgCOm5fQT0JuHgneFQ0VjWZS95iu6JQpVaZvrJVRft10eag-OQMdl3IyPb5R12O83crZiXO0GYd25ZXigw"/>
+</div>
+<h4 class="font-body-md font-bold text-on-surface truncate">AudioElite ANC Headphones</h4>
+<p class="font-h3 text-primary">$299.00</p>
+<button class="w-full py-sm bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90 transition-all active:scale-[0.98]">Move to Cart</button>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="An instant film camera with a retro-modern design in a creamy beige color. The camera is placed on a bright, minimalist wooden table with soft morning sunlight streaming in, creating a warm and approachable lifestyle aesthetic. The focus is sharp on the camera lens and texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs7IBp5-tN4GLwDWxZnxU1hbqxVgESqAOxYENFOCBeRLv-fdi7DsGR5rHc7b4vfPTGdcBYgt6niaAnoxUbJhJxTLb-gk9TvNiLlA7arKV7aGVqr8y5i8eHtSxcVs470K0pftLrzzaSlCANrQehBIPuR8vb98ScfthTFqaj91Nw_m5TcraZmCJrd0jMF9kXllyuskESGu02H8lrqWdXhs9tpvzqXVhu0kLhMoS2NmhcAClvTrp5x3F6m5qrrrbBKM8QG2gwAGLhiFw"/>
+</div>
+<h4 class="font-body-md font-bold text-on-surface truncate">RetroSnap Instant Camera</h4>
+<p class="font-h3 text-primary">$89.00</p>
+<button class="w-full py-sm bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90 transition-all active:scale-[0.98]">Move to Cart</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Summary Sidebar -->
+<aside class="w-full lg:w-96">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl shadow-sm sticky top-24">
+<h2 class="font-h2 text-h2 text-on-surface mb-xl">Order Summary</h2>
+<div class="space-y-md border-b border-outline-variant pb-md">
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Subtotal (2 items)</span>
+<span class="text-on-surface font-bold">$579.00</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Estimated Shipping</span>
+<span class="text-secondary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-body-md">
+<span class="text-on-surface-variant">Estimated Tax</span>
+<span class="text-on-surface font-bold">$46.32</span>
+</div>
+</div>
+<div class="py-xl">
+<div class="flex justify-between items-baseline">
+<span class="font-h3 text-h3 text-on-surface">Total</span>
+<span class="font-h1 text-h1 text-primary">$625.32</span>
+</div>
+</div>
+<div class="space-y-md">
+<button class="w-full py-md bg-primary text-on-primary rounded-lg font-h3 shadow-md hover:shadow-lg hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98]">
+                            Proceed to Checkout
+                        </button>
+<div class="flex items-center justify-center gap-xs py-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="lock" style="font-size: 16px;">lock</span>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Secure SSL Checkout</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="mt-xl pt-xl border-t border-outline-variant">
+<label class="font-label-md text-on-surface-variant mb-sm block">Promo Code</label>
+<div class="flex gap-sm">
+<input class="flex-1 bg-surface-container rounded-lg border border-outline-variant px-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all font-body-sm" placeholder="Enter code" type="text"/>
+<button class="px-lg py-sm bg-surface-container-high text-on-surface rounded-lg font-label-md hover:bg-surface-container-highest transition-colors">Apply</button>
+</div>
+</div>
+<!-- Trust Signals -->
+<div class="mt-xl space-y-md">
+<div class="flex gap-md p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<div>
+<p class="font-label-md font-bold text-on-surface">SwiftGuarantee</p>
+<p class="font-body-sm text-on-surface-variant">30-day money back guarantee on all orders.</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div>
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed-dim">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant mt-sm">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Sell on SwiftMarket</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg border-t border-outline-variant dark:border-outline shadow-md flex justify-around items-center px-md py-sm md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

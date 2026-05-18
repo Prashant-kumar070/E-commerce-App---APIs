@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#002111",
+                    "tertiary-container": "#9e6100",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#005231",
+                    "outline-variant": "#c2c6d9",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#59fead",
+                    "tertiary-fixed": "#ffddba",
+                    "on-tertiary-container": "#fff1e5",
+                    "surface-dim": "#cbdbf5",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0061ff",
+                    "on-tertiary-fixed-variant": "#673d00",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-surface": "#0b1c30",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f1f2ff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#007146",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0052dc",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-background": "#0b1c30",
+                    "secondary-container": "#56fbab",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-surface-variant": "#424656",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006d43",
+                    "on-primary-fixed": "#00174b",
+                    "secondary-fixed-dim": "#31e193",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline": "#737687",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary": "#004bca",
+                    "tertiary": "#7d4b00",
+                    "on-tertiary-fixed": "#2b1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "base": "4px",
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "code": ["JetBrains Mono"],
+                    "h2": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h1": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #f8f9ff; }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-xl">
+<span class="font-h2 text-h2 font-bold text-primary">SwiftMarket</span>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Deals</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Help</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</div>
+<div class="flex items-center gap-sm px-md py-xs bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md">Cart</span>
+</div>
+<div class="flex items-center gap-xs">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional close-up studio portrait of a customer with a neutral background, using soft rim lighting to create a clean, high-end corporate feel. The aesthetic is bright and minimal, matching a premium e-commerce platform's user interface. The color palette is composed of soft blues and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqpxOKc0Zr4Eo1Fqzq95Yd21XR5jJgi5VYu_0pPxbp5Su4B5r6X_WVe7bRgHSaDceC4cIbuQSyd8_sXH91gGkK60gQAKVOQ7hISRaciB_CjL0KCGpxo10448QKTPnlenCHIpmzKaVh6Fa0nrqQWyWG5cF55fTG0zzGTOG1016MdwZuB92Y0z8YhHTNJrk3qUdp3ejsvyvZvHCMnjpgKrkClTpmsdqs0_OBTgNaGxkeUIZ8E0tVRZqQI-cYkUMqqQ8dtLEJFXaVHTM"/>
+<span class="hidden md:block font-label-md">Account</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-xxl pb-xxl px-lg md:px-xxl max-w-container-max mx-auto min-h-screen">
+<header class="mb-xl mt-md">
+<h1 class="font-h1 text-h1 text-on-surface">My Orders</h1>
+<p class="text-on-surface-variant mt-xs">Manage your recent purchases and track live shipments.</p>
+</header>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-lg">
+<div class="flex gap-sm">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md">All Orders</button>
+<button class="bg-surface-container text-on-surface-variant px-lg py-sm rounded-lg font-label-md hover:bg-surface-container-high transition-all">Active</button>
+<button class="bg-surface-container text-on-surface-variant px-lg py-sm rounded-lg font-label-md hover:bg-surface-container-high transition-all">Completed</button>
+</div>
+<div class="relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-md py-sm rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none bg-surface" placeholder="Search orders by ID or item..." type="text"/>
+</div>
+</div>
+<!-- Orders List -->
+<div class="space-y-md">
+<!-- Order Card 1 (Active) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-md md:p-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+<div class="flex items-center gap-md w-full md:w-auto">
+<img alt="Order Item" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover" data-alt="A professional product photograph of a sleek, modern red athletic sneaker set against a minimalist light blue studio background. High-key lighting highlights the textile texture and dynamic shape of the shoe. The visual style is commercial and crisp, designed for a premium e-commerce dashboard. The overall mood is energetic and clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0XLJS8rS90K_0ruz43U1vTvwaizMX2NzGn1hDIAFY4zcnyNX1tX6fisC26ICtjVhV6iZS4M_Jehw8bH25uf6QLc0GzeaI8HxYAsnlAE2OY3CjnRi5hk6hZ0BRrTEVBM59grcGfgCbGteLY0PYwtPw4rZJnCP0T_0CVkdiFaxskTfr_xki2qFq1qaB-SkEmm31iVkKbTdSrHt-ISLYWUpMp409IM9Gxl73S6WSr4zmQMUaXivfUsSE2y8g9OzrITL-VA9zAvY3AM"/>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-code text-primary font-bold">#ORD-99281-XC</span>
+<span class="px-sm py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-bold">Shipped</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">SwiftStep Pro Runners</h3>
+<p class="text-on-surface-variant text-body-sm">Ordered on Oct 24, 2024 • 1 item</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto gap-sm">
+<span class="font-h2 text-h2 text-on-surface">$129.00</span>
+<div class="flex gap-xs">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md flex items-center gap-xs active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+                                Track Order
+                            </button>
+<button class="bg-surface-container-high text-on-surface-variant p-sm rounded-lg hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 2 (Delivered) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-md md:p-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-md opacity-90">
+<div class="flex items-center gap-md w-full md:w-auto">
+<img alt="Order Item" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover grayscale-[0.2]" data-alt="A luxury silver wristwatch captured with macro photography on a soft, white fabric surface. The lighting is soft and diffused, emphasizing the brushed metal finish and sapphire crystal. The style is sophisticated and high-end, representing a premium lifestyle product in a professional e-commerce context. Colors are neutral with elegant metallic highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsANXYsYEIZII3HwuKzOInAnC07Hac-X94TyE9NdeJLa2rRcnvOq75D65bsQGu1goAdUhlRlqNjXrwDXUDlipZbhP5oDlQlvFfLEv_TtYMEnGSyQIQwx9p4Wim0XuA3hmzvSkqIRWnuKdQj7pEtcE2G8TO77ktOGz9yG7x5_qcLkLHvWibJYAv91-eI-5giHamGM6XBTUmqmcCR547NXMjp98G0AV0voeFYd96uKbXciKlmltowVUxzv9DpXugbsAkW3iWqXvlZCg"/>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-code text-outline font-bold">#ORD-88120-LM</span>
+<span class="px-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold">Delivered</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Chronos Elite Watch</h3>
+<p class="text-on-surface-variant text-body-sm">Ordered on Oct 12, 2024 • 1 item</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto gap-sm">
+<span class="font-h2 text-h2 text-on-surface">$345.50</span>
+<div class="flex gap-xs">
+<button class="border border-outline-variant text-on-surface-variant px-lg py-sm rounded-lg font-label-md hover:bg-surface-container transition-all">View Invoice</button>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md hover:opacity-90 transition-all">Buy Again</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Card 3 (Processing) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-md md:p-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+<div class="flex items-center gap-md w-full md:w-auto">
+<img alt="Order Item" class="w-20 h-20 md:w-24 md:h-24 rounded-lg object-cover" data-alt="High-quality wireless over-ear headphones in matte black, positioned artistically on a clean, modern desk surface. The scene is illuminated with a cool blue ambient light and sharp key light to define the sleek curves of the product. The mood is tech-focused and professional, maintaining a high-end corporate UI aesthetic. The color palette is dominated by deep blacks and soft blue glows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmok2Cgt0mxHVqnoO557VevjBeUIgHuQ1jvjcnkDNl27qrBzAPtHxqj0nDRpTG1nctkaqjlOOOdQ3_atDfE74oexKev1m0Bu5Ht5JzdJ7GW2ztQL-lpUjYKlic_tLbiLr5toDBdoKDheGKU_WblHDknGKRUhyY97P0dOCztyTNyFIckrXm6UkFG2FSSUibFSDcdKMo2nDsACjrHSkcWCV4r9nL3aABorM6hd3IflDeKGXjnCa7Gmh3UbRqwkZR-mv7bd_DYHm1Yn8"/>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-code text-primary font-bold">#ORD-99300-AA</span>
+<span class="px-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-bold">Processing</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Acoustic Pro Headphones</h3>
+<p class="text-on-surface-variant text-body-sm">Ordered on Oct 26, 2024 • 2 items</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto gap-sm">
+<span class="font-h2 text-h2 text-on-surface">$599.00</span>
+<div class="flex gap-xs">
+<button class="border border-outline-variant text-on-surface-variant px-lg py-sm rounded-lg font-label-md hover:bg-surface-container transition-all">Cancel Order</button>
+<button class="bg-surface-container-high text-on-surface-variant p-sm rounded-lg hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-xl flex items-center justify-between border-t border-outline-variant pt-lg">
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+                Previous
+            </button>
+<div class="flex gap-xs">
+<span class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-md">1</span>
+<span class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high cursor-pointer font-label-md">2</span>
+<span class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high cursor-pointer font-label-md">3</span>
+</div>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline transition-all">
+                Next
+                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 backdrop-blur-lg border-t border-outline-variant shadow-md md:hidden">
+<div class="flex justify-around items-center px-md py-sm">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest border-t border-outline-variant mb-16 md:mb-0">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="text-on-surface-variant font-body-sm">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant font-body-sm hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-on-surface-variant font-body-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-sm hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="text-primary underline font-body-sm" href="#">Sell on SwiftMarket</a>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="language">language</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="help">help</span>
+</div>
+</div>
+</footer>
+</body></html>

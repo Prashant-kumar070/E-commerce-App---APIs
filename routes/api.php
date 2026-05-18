@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\DashboardController;
 use App\Http\Controllers\Api\Admin\OrderManagementController;
 use App\Http\Controllers\Api\Admin\ProductManagementController;
 use App\Http\Controllers\Api\Admin\UserManagementController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Api\Customer\CartController;
 use App\Http\Controllers\Api\Customer\OrderController as CustomerOrderController;
 use App\Http\Controllers\Api\Customer\ProductController as CustomerProductController;
 use App\Http\Controllers\Api\Delivery\OrderController as DeliveryOrderController;
+use App\Http\Controllers\Api\Seller\OrderController as SellerOrderController;
 use App\Http\Controllers\Api\Seller\ProductController as SellerProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,7 @@ Route::prefix('v1')->group(function (): void {
     Route::middleware('jwt.auth')->group(function (): void {
         Route::post('auth/logout', [AuthController::class, 'logout']);
         Route::get('auth/profile', [AuthController::class, 'profile']);
+        Route::put('auth/profile', [AuthController::class, 'updateProfile']);
 
         Route::prefix('admin')
             ->middleware(['role:admin', 'permission:users.manage'])
@@ -36,21 +39,30 @@ Route::prefix('v1')->group(function (): void {
         Route::prefix('admin')
             ->middleware(['role:admin'])
             ->group(function (): void {
+                Route::get('stats', [DashboardController::class, 'stats']);
+
                 Route::get('products', [ProductManagementController::class, 'index']);
                 Route::get('products/{product}', [ProductManagementController::class, 'show']);
+                Route::post('products', [ProductManagementController::class, 'store']);
+                Route::match(['patch', 'post'], 'products/{product}', [ProductManagementController::class, 'update']);
+                Route::delete('products/{product}', [ProductManagementController::class, 'destroy']);
 
                 Route::get('orders', [OrderManagementController::class, 'index']);
+                Route::post('orders', [OrderManagementController::class, 'store']);
                 Route::get('orders/{order}', [OrderManagementController::class, 'show']);
                 Route::patch('orders/{order}/assign-delivery', [OrderManagementController::class, 'assignDelivery']);
                 Route::patch('orders/{order}/status', [OrderManagementController::class, 'updateStatus']);
+                Route::patch('orders/{order}', [OrderManagementController::class, 'update']);
             });
 
         Route::prefix('seller')
             ->middleware(['role:seller'])
             ->group(function (): void {
+                Route::get('orders', [SellerOrderController::class, 'index']);
                 Route::get('products', [SellerProductController::class, 'index']);
                 Route::post('products', [SellerProductController::class, 'store']);
-                Route::patch('products/{product}', [SellerProductController::class, 'update']);
+                // POST + multipart is reliable for file uploads; PATCH kept for JSON-only updates.
+                Route::match(['patch', 'post'], 'products/{product}', [SellerProductController::class, 'update']);
                 Route::delete('products/{product}', [SellerProductController::class, 'destroy']);
             });
 

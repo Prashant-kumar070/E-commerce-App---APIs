@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#002111",
+                    "tertiary-container": "#9e6100",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#005231",
+                    "outline-variant": "#c2c6d9",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#59fead",
+                    "tertiary-fixed": "#ffddba",
+                    "on-tertiary-container": "#fff1e5",
+                    "surface-dim": "#cbdbf5",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0061ff",
+                    "on-tertiary-fixed-variant": "#673d00",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-surface": "#0b1c30",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f1f2ff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#007146",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0052dc",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-background": "#0b1c30",
+                    "secondary-container": "#56fbab",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-surface-variant": "#424656",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006d43",
+                    "on-primary-fixed": "#00174b",
+                    "secondary-fixed-dim": "#31e193",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline": "#737687",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary": "#004bca",
+                    "tertiary": "#7d4b00",
+                    "on-tertiary-fixed": "#2b1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "base": "4px",
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "code": ["JetBrains Mono"],
+                    "h2": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h1": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab { border-bottom: 2px solid #004bca; color: #004bca; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-xl">
+<span class="font-h2 text-h2 font-bold text-primary">SwiftMarket</span>
+<nav class="hidden md:flex gap-md font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Deals</a>
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-md py-xs">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-variant rounded-full"><span class="material-symbols-outlined" data-icon="favorite">favorite</span></button>
+<button class="p-xs hover:bg-surface-variant rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="flex items-center gap-xs px-md py-xs bg-primary text-on-primary rounded-lg font-label-md transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                        Cart
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-xxl pb-xxl px-lg max-w-container-max mx-auto mt-16">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-label-sm text-outline mb-md">
+<span>Home</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Audio</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Headphones</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface">SwiftSound Pro ANC</span>
+</nav>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xxl">
+<!-- Left: Product Gallery -->
+<div class="lg:col-span-7 flex flex-col md:flex-row-reverse gap-md">
+<div class="flex-1 aspect-square bg-surface-container rounded-xl overflow-hidden group relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional studio photograph of premium matte black wireless over-ear headphones. The lighting is dramatic with soft highlights defining the sleek curves and metallic accents. The background is a minimalist, neutral grey, conveying a high-end luxury feel consistent with modern tech branding and a Trust Blue color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYDiU8NnWCPC-RhdAWCFQcAUOmX2zMmWwqChPL-hyQB0W0j6mIrOrkZUZHif7XnXcQQVtV08Pz-2oApQonmN-6TSld7zfJplXBoM1okx1CuNGPHMVtS4vIExqHB6oS7_KA74HaaiABMAig9BTs98eK1v_PsIX99LGFN5r5nwuHZE10Q2Cr0b2BJwOnwXVUrN1_M0Jlr7yMG2DKmkOhSP-AHaZ5UZGEeJhk3froN-pufPlNlNVBM7BNdD7Ql6AXdShi3mK596FF1k8"/>
+</div>
+<div class="flex md:flex-col gap-sm overflow-x-auto md:overflow-visible">
+<div class="w-20 h-20 rounded-lg border-2 border-primary overflow-hidden flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Close up thumbnail of matte black headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaP_2e6BY5V8ZFErjz8GxhZUEibm2qz8eR6U2HHtPPA4nxhpjioYUNGNrh43CXKHcxbJMWUlvyvdyiYlYr9N9XxEphXR9_SBChZyIy7k0C-H8HXcsFoEDa5UPptoEb-KCJWleHxWrUcyf382T4oNuZM89Ol_fo0zzZ5XuOGKajVkVZAlb9stRzRa724kZLdE3yMOt41c-G3bCqnb7tUIVBPU_qP2Fm0v283A6MW7c4fZcWUoPte9Xz0Jug2toSYqrjS84cZiVv5ZY"/>
+</div>
+<div class="w-20 h-20 rounded-lg border border-outline-variant hover:border-outline overflow-hidden flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Side profile thumbnail view of wireless headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB76zj0EAzpCrhJ0cT1vzNqwkWhA7ujJW8Q4EHVXTzkor9rrjMKvspNW-mLJSfjRCA4ZEshdTNXSJRcZXxFTvaPwoKiWPdB3Kn7mZf_wUlfoyyNX4omKK30aq0ZYvwH_R68fT-_XodpD-2R9Luo_Gp4RYlmWb1KKXZ_GE_f_rOlKawaam2V1Vc-MzucTjemD2Z_SmKIu4_uWXRYGDIqnK8n-kYQIbO3LTC7c0sOOzsUQHjVWdhU7B7aAQd1mXCvsKZ95szZy_jNn8"/>
+</div>
+<div class="w-20 h-20 rounded-lg border border-outline-variant hover:border-outline overflow-hidden flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Overhead view thumbnail of wireless headphones showing padding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAalnA6v_d3Lkt8pzAQFj3Fyu2Vavfqga9N5ff0ihAAaObs_NhcMdd_v6F1Y6R4BQEJ5kANk3Ci7fNzZt2HAdOIS3rfNhh3li7YnQH3HyEBFDHur7OJrvKgIbGUfqsJ0PVumlmc5bAffPuRWE2Mn2uVJv3LhyIa0PU4DQNB1sFMyqe9I78OJYhDSxHSfDY5CY2AwX2F6D3Ce3rROfJu9flnaHRGdyBCptTgcBZs8e5r8Mu30M1ILvumG35rFA42QDoj2M6Y_-ajk2I"/>
+</div>
+<div class="w-20 h-20 rounded-lg border border-outline-variant hover:border-outline overflow-hidden flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Angle view thumbnail showing the leather ear cushions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5hW63pliBnxNUyivD3SoQ5StFWLybvkJvjrPz_SZqER5-KEn6zcQWRiIDeI0HyEagVFvx67KD6iVxdpcsrTdkdr8vxtdn4s5_z9uR78J28yW-IN5VbdOMkwUCH-ybNadt5UtMHRsYC4NhHsdL2J2UFdwwZrhxZOjcjsCs9x4Sasn2Ypl314AWIliFQkAcVZPlrakXAEBs1cyNuvWNyZE8SAXADMXdNMh44MZemENBfQ2EpaLOGsafQH0dUkAmViWXxXlvirRYst0"/>
+</div>
+</div>
+</div>
+<!-- Right: Product Information -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="flex items-center justify-between mb-sm">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-bold uppercase tracking-wider">
+                        In Stock
+                    </span>
+<div class="flex items-center gap-xs text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-on-surface">4.8</span>
+<span class="text-outline text-label-sm">(1,240 Reviews)</span>
+</div>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface mb-xs">SwiftSound Pro ANC</h1>
+<p class="text-on-surface-variant text-body-md mb-md">Next-generation noise cancellation with spatial audio and 40-hour battery life.</p>
+<div class="flex items-baseline gap-sm mb-lg">
+<span class="font-h2 text-h2 text-primary">$199.99</span>
+<span class="text-outline line-through text-body-sm">$249.99</span>
+</div>
+<div class="mb-lg">
+<span class="font-label-md text-on-surface mb-sm block">Select Color: <span class="text-outline">Matte Black</span></span>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full bg-[#0b1c30] ring-2 ring-primary ring-offset-2"></button>
+<button class="w-10 h-10 rounded-full bg-[#e2e8f0] border border-outline-variant"></button>
+<button class="w-10 h-10 rounded-full bg-[#1e40af] border border-outline-variant"></button>
+</div>
+</div>
+<div class="mb-xxl">
+<span class="font-label-md text-on-surface mb-sm block">Quantity</span>
+<div class="flex items-center border border-outline-variant rounded-lg w-fit">
+<button class="px-md py-sm hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<span class="px-md font-body-md">1</span>
+<button class="px-md py-sm hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<button class="w-full py-md bg-primary text-on-primary rounded-lg font-h3 transition-transform active:scale-[0.98] flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">shopping_cart</span>
+                        Add to Cart
+                    </button>
+<button class="w-full py-md bg-secondary text-on-secondary rounded-lg font-h3 transition-transform active:scale-[0.98]">
+                        Buy Now
+                    </button>
+</div>
+<!-- Delivery Info Card -->
+<div class="mt-xl p-md bg-surface-container-low rounded-xl space-y-sm">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<p class="font-label-md">Free Express Delivery</p>
+<p class="text-body-sm text-on-surface-variant">Estimated delivery by Oct 24 - 26</p>
+</div>
+</div>
+<div class="flex gap-md border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="font-label-md">2-Year Limited Warranty</p>
+<p class="text-body-sm text-on-surface-variant">Global coverage and 24/7 technical support</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabbed Content Section -->
+<section class="mt-xxl">
+<div class="border-b border-outline-variant flex gap-xl mb-md">
+<button class="pb-sm font-label-md text-primary border-b-2 border-primary">Description</button>
+<button class="pb-sm font-label-md text-on-surface-variant hover:text-primary transition-colors">Specifications</button>
+<button class="pb-sm font-label-md text-on-surface-variant hover:text-primary transition-colors">Customer Reviews</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xxl py-md">
+<div class="space-y-md">
+<h3 class="font-h3 text-h3">Studio-Quality Sound, Everywhere</h3>
+<p class="text-on-surface-variant">Experience audio like never before. The SwiftSound Pro ANC utilizes custom-designed 40mm dynamic drivers to produce deep, resonant bass, natural mids, and crisp highs. Our industry-leading Active Noise Cancellation adapts 50,000 times per second to neutralize ambient noise, whether you're in a crowded office or a jet cabin.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary">check_circle</span> Adaptive Noise Cancellation</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary">check_circle</span> 40-Hour Battery with Quick Charge</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary">check_circle</span> Multi-Point Bluetooth Connection</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary">check_circle</span> Advanced Transparency Mode</li>
+</ul>
+</div>
+<div class="rounded-xl overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A lifestyle photo of a professional wearing the matte black headphones while working on a laptop in a modern, sun-drenched coworking space. The background is softly blurred to emphasize the product. The overall aesthetic is professional, clean, and optimistic, utilizing soft light and a high-key exposure style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6jKcgDTFm219EeOa54pcpKI-URIKApPq44yHrm2oD6ZkuqRQ_jHVUWM0lJuWdqQ3pXGD80RCcCOeMYXB9Z-C9-JKnJrkMOmuNHKrS6vVDLVPPP1eE536guyajAIRjDaI0T2VuVdbmPrMPUzCXHzITbi2W5xPse8zWosTO844k0P9I_aLQEvG581hBN1QGwKaNLPp0rQdeCY4ZkNAakD3FucPgYbcaPq3Xn2CUFZ2H4Z49p9lhz2kz-Bz4Z3v29KhIqVoC7jzotXs"/>
+</div>
+</div>
+</section>
+<!-- Recommended Bento Grid -->
+<section class="mt-xxl">
+<h3 class="font-h2 text-h2 mb-xl">You might also like</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant hover:shadow-md transition-all group">
+<div class="aspect-square rounded-lg bg-surface-container mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Sleek silver wireless earbuds in a charging case" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPkTF6NLgFM4VOPN9T1l48xKKMVroUvJEKFBmAUeSNQPyiVpvlA812AhZQ5tZVcSpgrIxaB5rRQdtLyvDY_tvuPKYrvUCE6s6kDDEAvWC6WWs1vkah6Ru3jzt5g4HRQlaN1Zz-nP91eSMpA6XOd6m3Vq-9FXWzsC82ctuvzkmy7Q_PJHAFsu2OXkp6heI_UPATrEpwO86tJsqQtL8C2Xal_Y_kmlpFUbWsXC9p782t2WXiXMmpy6bV7dHXor8GVCT9gk20vlygCJ8"/>
+</div>
+<h4 class="font-label-md mb-xs">SwiftPods Lite</h4>
+<p class="text-primary font-bold">$79.99</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant hover:shadow-md transition-all group">
+<div class="aspect-square rounded-lg bg-surface-container mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Professional grade wired headphones with thick padding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFeeGx7jKutkWk6eWWSp5w8ulMzdOOzS5sK875CrtYzb_1VNsgGbbJ4xfmJZCIbUjCklRKHJq3eCd0pRTAt2y4BYvNcke7zf-MVizN9j45-pxILfdb87_lC0W4fGrGL7UoM6pQbisBgCy1QglVqf8gna41wpAJq-nAeYtCyb-t0GmSJWhCle0j3ssQhmgf3QndnmQItmXAyNXUZciFl21gIDpUceAfLwXf6oyOdf0lnqqld0RZFm_P8meRLQdWoYCGgZjLQXk8Ukg"/>
+</div>
+<h4 class="font-label-md mb-xs">Studio Monitor X</h4>
+<p class="text-primary font-bold">$149.99</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant hover:shadow-md transition-all group">
+<div class="aspect-square rounded-lg bg-surface-container mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Portable bluetooth speaker with fabric finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkHsw7C_PPXOEGkY4F2P_Lnhgepq3UyyWesCmoUhuib7hxlao-DMGJGsBe17qA3hnM7JqfKAxBWwzbQyTNGf7eMq58Wvcp5UJoj0mGgHx76Rtm26cUq8yAjMY9HJYVWPp5Qlqx4kLFp-H3M_CH3VYYFfAMQMbjp93aHHyQXkF1w0GnO6ixAaU8o3dyuJDUTjF5c7eQU88UKkwzrC_ZgIPiJaFOCo4cvC8Weyl3Oe0jc4OaBFXV1Mp1FxGWUqBEi6MhlVVkQT4aKcw"/>
+</div>
+<h4 class="font-label-md mb-xs">SwiftSpeaker Go</h4>
+<p class="text-primary font-bold">$129.99</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant hover:shadow-md transition-all group">
+<div class="aspect-square rounded-lg bg-surface-container mb-sm overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Protective hard case for over ear headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKjebxu5Rd6EznsEkmBKLL4tqLt9pyT2lDKJwd5zOw4xQ90qtYlpmYFWTS1xFkv__SPHBepDZLylNHCeVM1QLLXInOL969HngcrF59j8aAvWEGV99N92vaSDXj6euC5vit4FkD5UwAe8S-PTlRQzNAWhCdegBv251ZgbXqKvyDYwAZZ-lr8J0z33SvrbA_B4pzB8Y_D_RMqoSS8HBeXsNTdhz4vTQsTua0LTd997mk1d70uX43cBRswHEaDzdLQajlCNUfUuHIj1Q"/>
+</div>
+<h4 class="font-label-md mb-xs">Travel Shell Pro</h4>
+<p class="text-primary font-bold">$29.99</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-start max-w-container-max mx-auto px-lg gap-xl">
+<div class="space-y-md">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="text-on-surface-variant max-w-xs text-body-sm">The world's premier destination for high-fidelity audio and premium consumer electronics. Quality guaranteed.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-xl">
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-on-surface">Company</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Sell on SwiftMarket</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-on-surface">Support</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Contact Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-md text-on-surface">Privacy</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-lg mt-xxl pt-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-on-surface-variant text-body-sm">© 2024 SwiftMarket eCommerce Group</p>
+<div class="flex gap-md text-outline">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">brand_awareness</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">payments</span>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-lg border-t border-outline-variant shadow-md flex justify-around items-center px-md py-sm md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+</body></html>

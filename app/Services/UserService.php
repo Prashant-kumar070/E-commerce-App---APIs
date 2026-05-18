@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\ApiException;
 use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
@@ -10,13 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class UserService
 {
-    public function __construct(protected UserRepositoryInterface $users)
-    {
-    }
+    public function __construct(protected UserRepositoryInterface $users) {}
 
-    public function paginate(int $perPage = 15): LengthAwarePaginator
+    public function paginate(int $perPage = 15, array $filters = []): LengthAwarePaginator
     {
-        return $this->users->paginate($perPage);
+        return $this->users->paginate($perPage, $filters);
     }
 
     public function create(array $data): User
@@ -52,5 +51,12 @@ class UserService
     public function delete(User $user): bool
     {
         return $this->users->delete($user);
+    }
+
+    public function assertCanDelete(User $actor, User $target): void
+    {
+        if ($actor->id === $target->id) {
+            throw new ApiException('You cannot delete your own account.', 422);
+        }
     }
 }

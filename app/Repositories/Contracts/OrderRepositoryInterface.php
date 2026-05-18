@@ -13,9 +13,11 @@ interface OrderRepositoryInterface
 
     public function findOrFail(int $id): Order;
 
-    public function paginateAll(int $perPage = 15): LengthAwarePaginator;
+    public function paginateAll(int $perPage = 15, array $filters = []): LengthAwarePaginator;
 
     public function paginateByCustomer(int $customerId, int $perPage = 15): LengthAwarePaginator;
 
     public function paginateAssigned(int $deliveryPersonId, int $perPage = 15): LengthAwarePaginator;
+
+    public function paginateForSeller(int $sellerId, int $perPage = 15): LengthAwarePaginator;
 }

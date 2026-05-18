@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join SwiftMarket - Create Your Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002111",
+                        "tertiary-container": "#9e6100",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#005231",
+                        "outline-variant": "#c2c6d9",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#59fead",
+                        "tertiary-fixed": "#ffddba",
+                        "on-tertiary-container": "#fff1e5",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0061ff",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f1f2ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007146",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0052dc",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#56fbab",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#424656",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006d43",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#31e193",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "outline": "#737687",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary": "#004bca",
+                        "tertiary": "#7d4b00",
+                        "on-tertiary-fixed": "#2b1700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-lift {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .active-ring {
+            box-shadow: 0 0 0 3px rgba(0, 75, 202, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Primary Canvas -->
+<main class="min-h-screen flex flex-col items-center justify-center px-gutter py-xxl relative overflow-hidden">
+<!-- Abstract Background Element -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/20 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="w-full max-w-container-max flex flex-col md:flex-row items-stretch gap-xl z-10">
+<!-- Left Side: Branding & Value Prop (Bento Style) -->
+<div class="flex-1 hidden md:flex flex-col justify-between p-xl space-y-lg">
+<div class="space-y-md">
+<h1 class="font-h1 text-h1 text-primary">SwiftMarket</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Join the next generation of commerce. Whether you're here to find the best deals or scale your business, we've got you covered.
+                    </p>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div class="p-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 ambient-lift">
+<span class="material-symbols-outlined text-primary text-3xl mb-sm">speed</span>
+<h3 class="font-h3 text-h3 text-on-surface">Fast Logistics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global shipping reach with local speed.</p>
+</div>
+<div class="p-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 ambient-lift">
+<span class="material-symbols-outlined text-secondary text-3xl mb-sm">verified_user</span>
+<h3 class="font-h3 text-h3 text-on-surface">Secure Payments</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enterprise-grade protection for every trade.</p>
+</div>
+</div>
+<div class="relative h-64 rounded-2xl overflow-hidden group">
+<img alt="Marketplace Dynamics" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A high-end professional photograph showing a sleek, modern commercial warehouse with automated logistics technology. The lighting is bright and clean, with a blue and white aesthetic that evokes trust and efficiency. Subtle motion blur on a robotic arm suggests high-speed operations. The atmosphere is professional, organized, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7-FvJn7q1RC61KmpLr_R3mCzyxn9XgFeiZBu_JrvoSo6XbthRwYNXEWzacJp2Yd2rZ98h7aDjXrBKrMuMfIOMUSb2VxiT2jdIp9uydxjRG-6gv5VqoCL6MfhEengReSLiKnwfiQ3KRb1613DtfSmhe-vZBJxoWl5gjtpqrYRa9gHHwe009kIBpZmtjrsIBJPjNpL3fbJAGE_Vfr6rXxHvFan5qjdV3iVjXTE9KpACiU9wpGDc91sm_zvihb4JU2bglgurdywN5es"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="text-white font-label-md text-label-md bg-primary/80 px-sm py-1 rounded">Trusted by 2M+ Users</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="w-full md:w-[540px] bg-surface-container-lowest rounded-2xl border border-outline-variant p-lg md:p-xl shadow-md">
+<div class="mb-xl">
+<h2 class="font-h2 text-h2 text-on-surface mb-xs">Create Account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Start your journey with SwiftMarket today.</p>
+</div>
+<form class="space-y-lg">
+<!-- Form Fields -->
+<div class="space-y-md">
+<div class="flex flex-col space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="full_name">Full Name</label>
+<input class="w-full px-md py-sm bg-surface border border-outline-variant rounded-lg focus:ring-primary focus:border-primary focus:active-ring transition-all outline-none text-on-surface" id="full_name" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="email">Email Address</label>
+<input class="w-full px-md py-sm bg-surface border border-outline-variant rounded-lg focus:ring-primary focus:border-primary focus:active-ring transition-all outline-none text-on-surface" id="email" placeholder="john@example.com" type="email"/>
+</div>
+<div class="flex flex-col space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="password">Password</label>
+<input class="w-full px-md py-sm bg-surface border border-outline-variant rounded-lg focus:ring-primary focus:border-primary focus:active-ring transition-all outline-none text-on-surface" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Role Selection -->
+<div class="space-y-md">
+<p class="font-label-md text-label-md text-on-surface-variant ml-1">Select Your Role</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Customer Card -->
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="role" type="radio" value="customer"/>
+<div class="h-full p-md border border-outline-variant rounded-xl bg-surface group-hover:border-primary/50 transition-all peer-checked:border-primary peer-checked:bg-primary-container/10 peer-checked:active-ring">
+<div class="flex items-center justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<div class="w-4 h-4 border-2 border-outline-variant rounded-full peer-checked:border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full hidden peer-checked:block"></div>
+</div>
+</div>
+<p class="font-h3 text-h3 text-on-surface mb-1">Customer</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">I want to shop. Access millions of products and daily deals.</p>
+</div>
+</label>
+<!-- Seller Card -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="role" type="radio" value="seller"/>
+<div class="h-full p-md border border-outline-variant rounded-xl bg-surface group-hover:border-primary/50 transition-all peer-checked:border-primary peer-checked:bg-primary-container/10 peer-checked:active-ring">
+<div class="flex items-center justify-between mb-sm">
+<span class="material-symbols-outlined text-secondary">storefront</span>
+<div class="w-4 h-4 border-2 border-outline-variant rounded-full peer-checked:border-primary flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full hidden peer-checked:block"></div>
+</div>
+</div>
+<p class="font-h3 text-h3 text-on-surface mb-1">Seller</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">I want to sell. High-end analytics, low fees, and global reach.</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-white font-label-md text-label-md py-md rounded-lg active:scale-[0.98] transition-transform duration-150 shadow-lg shadow-primary/20 hover:bg-primary/90" type="submit">
+                        Create Account
+                    </button>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant mt-md">
+                        Already have an account? <a class="text-primary font-bold hover:underline" href="#">Sign In</a>
+</p>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-xxl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sell on SwiftMarket</a>
+</nav>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</footer>
+</body></html>

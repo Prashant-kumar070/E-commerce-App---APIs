@@ -21,5 +21,5 @@ interface ProductRepositoryInterface
 
     public function paginateSellerProducts(int $sellerId, int $perPage = 15): LengthAwarePaginator;
 
-    public function paginateAll(int $perPage = 15): LengthAwarePaginator;
+    public function paginateAll(int $perPage = 15, array $filters = []): LengthAwarePaginator;
 }

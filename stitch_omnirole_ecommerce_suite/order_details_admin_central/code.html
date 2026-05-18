@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SwiftMarket Order Details - Seller Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-lowest": "#ffffff",
+                  "inverse-on-surface": "#eaf1ff",
+                  "background": "#f8f9ff",
+                  "surface-variant": "#d3e4fe",
+                  "on-error-container": "#93000a",
+                  "surface-container-high": "#dce9ff",
+                  "tertiary": "#7d4b00",
+                  "surface-container-highest": "#d3e4fe",
+                  "secondary-fixed-dim": "#31e193",
+                  "primary-container": "#0061ff",
+                  "on-secondary": "#ffffff",
+                  "on-primary-container": "#f1f2ff",
+                  "surface-dim": "#cbdbf5",
+                  "secondary-fixed": "#59fead",
+                  "surface": "#f8f9ff",
+                  "primary-fixed": "#dbe1ff",
+                  "on-secondary-fixed": "#002111",
+                  "on-error": "#ffffff",
+                  "outline": "#737687",
+                  "surface-container": "#e5eeff",
+                  "on-primary-fixed": "#00174b",
+                  "secondary": "#006d43",
+                  "secondary-container": "#56fbab",
+                  "on-tertiary-fixed-variant": "#673d00",
+                  "on-tertiary-fixed": "#2b1700",
+                  "error": "#ba1a1a",
+                  "surface-container-low": "#eff4ff",
+                  "on-tertiary-container": "#fff1e5",
+                  "on-surface-variant": "#424656",
+                  "on-primary-fixed-variant": "#003ea8",
+                  "tertiary-fixed-dim": "#ffb866",
+                  "tertiary-container": "#9e6100",
+                  "primary": "#004bca",
+                  "on-primary": "#ffffff",
+                  "on-background": "#0b1c30",
+                  "inverse-surface": "#213145",
+                  "on-surface": "#0b1c30",
+                  "surface-tint": "#0052dc",
+                  "error-container": "#ffdad6",
+                  "on-secondary-container": "#007146",
+                  "on-tertiary": "#ffffff",
+                  "outline-variant": "#c2c6d9",
+                  "on-secondary-fixed-variant": "#005231",
+                  "inverse-primary": "#b4c5ff",
+                  "surface-bright": "#f8f9ff",
+                  "primary-fixed-dim": "#b4c5ff",
+                  "tertiary-fixed": "#ffddba"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "sm": "8px",
+                  "gutter": "24px",
+                  "container-max": "1280px",
+                  "xxl": "48px",
+                  "xl": "32px",
+                  "lg": "24px",
+                  "md": "16px",
+                  "base": "4px",
+                  "xs": "4px"
+          },
+          "fontFamily": {
+                  "code": ["JetBrains Mono"],
+                  "body-lg": ["Inter"],
+                  "body-sm": ["Inter"],
+                  "body-md": ["Inter"],
+                  "h3": ["Inter"],
+                  "label-sm": ["Inter"],
+                  "label-md": ["Inter"],
+                  "h2": ["Inter"],
+                  "h1": ["Inter"]
+          },
+          "fontSize": {
+                  "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                  "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                  "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-low h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant flex flex-col p-md space-y-xs h-full z-50">
+<div class="px-sm py-md">
+<h3 class="font-h3 text-h3 font-bold text-on-surface">Seller Central</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Premium Merchant</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container font-bold rounded-lg translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payouts</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="pt-md border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all text-error" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Top Bar -->
+<header class="h-16 border-b border-outline-variant bg-surface/80 backdrop-blur-md sticky top-0 z-40 flex items-center justify-between px-xl">
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<nav class="flex items-center gap-sm">
+<span class="text-on-surface-variant font-label-md">Orders</span>
+<span class="material-symbols-outlined text-outline-variant" style="font-size: 16px;">chevron_right</span>
+<span class="text-on-surface font-label-md">#ORD-88219</span>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<div class="p-xl max-w-container-max mx-auto space-y-lg">
+<!-- Order Header & Status -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<div class="flex items-center gap-sm">
+<h1 class="font-h1 text-h1 text-on-surface">Order #ORD-88219</h1>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-size: 14px;">local_shipping</span>
+              Shipped
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Placed on Oct 24, 2024 at 02:45 PM</p>
+</div>
+<!-- Quick Actions Bar -->
+<div class="flex flex-wrap gap-sm">
+<button class="flex items-center gap-sm bg-surface-container-highest text-on-surface px-md py-sm rounded-lg font-label-md hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="print" style="font-size: 18px;">print</span>
+            Print Invoice
+          </button>
+<button class="flex items-center gap-sm bg-surface-container-highest text-on-surface px-md py-sm rounded-lg font-label-md hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="mail" style="font-size: 18px;">mail</span>
+            Message Customer
+          </button>
+<button class="flex items-center gap-sm bg-surface-container-highest text-on-surface px-md py-sm rounded-lg font-label-md hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="undo" style="font-size: 18px;">undo</span>
+            Refund
+          </button>
+<button class="flex items-center gap-sm bg-error-container text-on-error-container px-md py-sm rounded-lg font-label-md hover:opacity-90 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="cancel" style="font-size: 18px;">cancel</span>
+            Cancel Order
+          </button>
+</div>
+</section>
+<!-- Bento-style Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left Column (Main Order Content) -->
+<div class="lg:col-span-2 space-y-lg">
+<!-- Order Items Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-md bg-surface-container border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-on-surface">Order Items (3)</h3>
+<span class="text-on-surface-variant font-label-md">Total Weight: 4.2 kg</span>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- Item 1 -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors">
+<img alt="Product" class="w-20 h-20 object-cover rounded-lg border border-outline-variant" data-alt="A professional studio product shot of a sleek red athletic sneaker positioned against a clean, white background. The lighting is soft and even, highlighting the texture of the fabric and the glossy finish of the sole. The image conveys a modern, high-end retail aesthetic with crisp focus and vibrant color saturation, aligning with a premium commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcjXUaor6J3xkFptZqv2kUpeTU8M39ZFaNaRFlLjXMqD-7HOUQouOtX2XleqLF5-nVd2EqLhS5weJv3hf8sLbSHguQCSkks3JwODG1PNPpN41edfU2Klt6hKLRCw2i2_ne1Hx4OWO1a90gyMITf4uypttX4y4jfjvqRlPkGe2L-eXXt_mNi8YBJxe_AtRYsnLtzlYv67KE2O5GvRI55L9VcOci1wHDdoXIGmUqjlRxqPwNUWS4LCJdmdSiYu0ebCVwa2_Hi36BcDs"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary font-bold">UltraBoost Performance Runner</h4>
+<p class="text-on-surface-variant font-body-sm">SKU: SM-UB-8821-R</p>
+<p class="text-on-surface-variant font-body-sm">Color: Crimson Red | Size: 10.5</p>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-on-surface">$120.00</p>
+<p class="text-on-surface-variant font-label-sm">Qty: 1</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors">
+<img alt="Product" class="w-20 h-20 object-cover rounded-lg border border-outline-variant" data-alt="A minimalist white smartwatch displayed on a light gray surface with soft, diffused top-down lighting. The watch face is clean, reflecting a professional and high-tech feel. The aesthetic is extremely modern and functional, emphasizing reliability and sleek design through a monochromatic color palette with subtle blue accents in the shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe_Lu6cXvaTM8JBlTSYev5rB7qhbicvPasXiLz02GOCkEIIhLO7nPGlcBAnNFRpfgTfj9cfWynHiMgrakkof8qUteNvEYMwk4MnX049AHpEBXhFfImGuD_LDNerxLXqnFWCX2aG5wIsKktYmdHsAjjXqpbtDENjsLJ2NRMug0JqRVGOUIPGSgwwHZuIJEWsviKRUZjvAAKnp7yiibQA62AFIEOQXskTiRiT-36HuRq0ec6tsNTH5h8Kku7YyPROAkcnv258PPiybQ"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary font-bold">CoreSync Smartwatch Series 4</h4>
+<p class="text-on-surface-variant font-body-sm">SKU: SM-CS-902-WH</p>
+<p class="text-on-surface-variant font-body-sm">Material: Silicon | Size: 44mm</p>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-on-surface">$249.00</p>
+<p class="text-on-surface-variant font-label-sm">Qty: 1</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-md flex items-center gap-md hover:bg-surface-container-low transition-colors">
+<img alt="Product" class="w-20 h-20 object-cover rounded-lg border border-outline-variant" data-alt="High-quality black studio headphones resting on a wooden desk. The lighting creates elegant highlights along the metallic curves of the headset. The environment is warm and professional, suggesting a premium audio experience. The composition is balanced and focused, using shallow depth of field to emphasize the product's fine craftsmanship and modern corporate utility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiBXFtoMVtummFel_Z_vTIrSi8rCTM_zc64JMfgIBhRyM_SB2INpSd8ZpePfQmtdS1XkAr0CNI0srPlNJDK364K4a5aTl5aae9yF9_9cHK1rmKYuowjflY6b2yZjxflAmk4hFvwY2li5QrG6eW7b1_zHxEJ7Zt_R8faS9qyn1R3B_FSugtBsah_OurEIB5BzGIRFqnaBj4y6IOrpj1L5t2HVtMWQte7sCXKGJztoIEmCz5zdAWoVJF2L8n-J7IUfKEyUO9UXOQnJg"/>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary font-bold">Pro-Audio Wireless Over-Ear</h4>
+<p class="text-on-surface-variant font-body-sm">SKU: SM-PA-500-BK</p>
+<p class="text-on-surface-variant font-body-sm">Feature: ANC Active Noise Cancellation</p>
+</div>
+<div class="text-right">
+<p class="font-body-md font-bold text-on-surface">$180.00</p>
+<p class="text-on-surface-variant font-label-sm">Qty: 1</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Logistics & Tracking Section -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-md">Logistics</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Carrier</p>
+<p class="font-body-md font-bold text-on-surface">Express Overnight</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tracking Number</p>
+<p class="font-body-md font-bold text-primary flex items-center gap-xs">
+                    SWF-9912034451
+                    <span class="material-symbols-outlined" data-icon="content_copy" style="font-size: 16px;">content_copy</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="mt-md h-32 rounded-lg bg-surface-container overflow-hidden relative">
+<div class="absolute inset-0 bg-blue-100/50 flex items-center justify-center">
+<span class="text-on-surface-variant font-label-md">Interactive Map View: In Transit to Chicago, IL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Customer & Timeline) -->
+<div class="space-y-lg">
+<!-- Customer Info Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-md">Customer Info</h3>
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-h3">
+                JS
+              </div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Jonathan Smith</p>
+<p class="font-body-sm text-on-surface-variant">Customer since 2021</p>
+</div>
+</div>
+<div class="space-y-sm text-body-sm">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="mail" style="font-size: 18px;">mail</span>
+                jonathan.smith@example.com
+              </div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="phone" style="font-size: 18px;">phone</span>
+                +1 (555) 123-4567
+              </div>
+</div>
+<hr class="my-md border-outline-variant"/>
+<div class="space-y-md">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-xs">Shipping Address</p>
+<p class="text-body-sm text-on-surface">1234 Emerald Lake Dr.<br/>Chicago, IL 60611<br/>United States</p>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase mb-xs">Billing Address</p>
+<p class="text-body-sm text-on-surface">Same as shipping</p>
+</div>
+</div>
+</div>
+<!-- Payment Summary Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-md">Payment Summary</h3>
+<div class="space-y-sm">
+<div class="flex justify-between text-body-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span>$549.00</span>
+</div>
+<div class="flex justify-between text-body-sm text-on-surface-variant">
+<span>Shipping</span>
+<span>$15.00</span>
+</div>
+<div class="flex justify-between text-body-sm text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>$43.92</span>
+</div>
+<div class="flex justify-between text-body-sm text-on-secondary-container bg-secondary-container/20 px-xs rounded">
+<span>Discount (WINTER20)</span>
+<span>-$109.80</span>
+</div>
+<div class="pt-sm mt-sm border-t border-outline-variant flex justify-between font-bold text-body-lg text-on-surface">
+<span>Total</span>
+<span>$498.12</span>
+</div>
+</div>
+<div class="mt-md flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="credit_card">credit_card</span>
+<span class="text-body-sm text-on-surface-variant">Paid via Visa ending in 4492</span>
+</div>
+</div>
+<!-- Order Timeline -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h3 class="font-h3 text-h3 text-on-surface mb-md">Order Timeline</h3>
+<div class="relative space-y-lg before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<!-- Transit -->
+<div class="relative pl-lg flex flex-col">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-lowest z-10">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-bold">In Transit</p>
+<p class="text-label-sm text-on-surface-variant">Oct 26, 2024 - 09:12 AM</p>
+</div>
+<!-- Shipped -->
+<div class="relative pl-lg flex flex-col">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-white" style="font-size: 14px;">check</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Shipped</p>
+<p class="text-label-sm text-on-surface-variant">Oct 25, 2024 - 11:30 AM</p>
+</div>
+<!-- Packed -->
+<div class="relative pl-lg flex flex-col">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-white" style="font-size: 14px;">check</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Packed</p>
+<p class="text-label-sm text-on-surface-variant">Oct 25, 2024 - 08:00 AM</p>
+</div>
+<!-- Payment Confirmed -->
+<div class="relative pl-lg flex flex-col">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-white" style="font-size: 14px;">check</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Payment Confirmed</p>
+<p class="text-label-sm text-on-surface-variant">Oct 24, 2024 - 02:50 PM</p>
+</div>
+<!-- Order Placed -->
+<div class="relative pl-lg flex flex-col">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-surface-container-lowest z-10">
+<span class="material-symbols-outlined text-white" style="font-size: 14px;">check</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Order Placed</p>
+<p class="text-label-sm text-on-surface-variant">Oct 24, 2024 - 02:45 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Anchor -->
+<footer class="w-full py-xxl border-t border-outline-variant bg-surface-container-highest flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md mt-xl">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sell on SwiftMarket</a>
+</div>
+</footer>
+</main>
+</body></html>

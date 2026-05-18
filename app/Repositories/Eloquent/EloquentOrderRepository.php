@@ -25,9 +25,23 @@ class EloquentOrderRepository implements OrderRepositoryInterface
         return Order::query()->with($this->relations())->findOrFail($id);
     }
 
-    public function paginateAll(int $perPage = 15): LengthAwarePaginator
+    public function paginateAll(int $perPage = 15, array $filters = []): LengthAwarePaginator
     {
-        return Order::query()->with($this->relations())->latest()->paginate($perPage);
+        return Order::query()
+            ->with($this->relations())
+            ->when(! empty($filters['status']), fn ($query) => $query->where('status', $filters['status']))
+            ->when(! empty($filters['search']), function ($query) use ($filters): void {
+                $term = '%'.$filters['search'].'%';
+                $query->where(function ($inner) use ($term): void {
+                    $inner->where('order_number', 'like', $term)
+                        ->orWhereHas('customer', function ($customerQuery) use ($term): void {
+                            $customerQuery->where('name', 'like', $term)->orWhere('email', 'like', $term);
+                        });
+                });
+            })
+            ->orderByDesc('placed_at')
+            ->orderByDesc('id')
+            ->paginate($perPage);
     }
 
     public function paginateByCustomer(int $customerId, int $perPage = 15): LengthAwarePaginator
@@ -45,6 +59,16 @@ class EloquentOrderRepository implements OrderRepositoryInterface
             ->with($this->relations())
             ->where('delivery_person_id', $deliveryPersonId)
             ->latest()
+            ->paginate($perPage);
+    }
+
+    public function paginateForSeller(int $sellerId, int $perPage = 15): LengthAwarePaginator
+    {
+        return Order::query()
+            ->with($this->relations())
+            ->whereHas('items', fn ($query) => $query->where('seller_id', $sellerId))
+            ->orderByDesc('placed_at')
+            ->orderByDesc('id')
             ->paginate($perPage);
     }
 

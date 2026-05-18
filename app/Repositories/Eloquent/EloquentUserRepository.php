@@ -26,11 +26,20 @@ class EloquentUserRepository implements UserRepositoryInterface
         return (bool) $user->delete();
     }
 
-    public function paginate(int $perPage = 15): LengthAwarePaginator
+    public function paginate(int $perPage = 15, array $filters = []): LengthAwarePaginator
     {
         return User::query()
             ->with('role.permissions')
-            ->latest()
+            ->when(! empty($filters['role']), function ($query) use ($filters): void {
+                $query->whereHas('role', fn ($roleQuery) => $roleQuery->where('slug', $filters['role']));
+            })
+            ->when(! empty($filters['search']), function ($query) use ($filters): void {
+                $term = '%'.$filters['search'].'%';
+                $query->where(function ($inner) use ($term): void {
+                    $inner->where('name', 'like', $term)->orWhere('email', 'like', $term);
+                });
+            })
+            ->latest('id')
             ->paginate($perPage);
     }
 

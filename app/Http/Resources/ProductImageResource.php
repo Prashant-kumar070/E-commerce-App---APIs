@@ -10,10 +10,16 @@ class ProductImageResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
+        // Files under public/products/ are served by the app host (e.g. :8000). Using the
+        // current request origin avoids wrong URLs when APP_URL is http://localhost without port.
+        $url = str_starts_with($this->path, 'products/')
+            ? $request->getSchemeAndHttpHost().'/'.ltrim($this->path, '/')
+            : $request->getSchemeAndHttpHost().'/storage/'.ltrim($this->path, '/');
+
         return [
             'id' => $this->id,
             'path' => $this->path,
-            'url' => Storage::disk('public')->url($this->path),
+            'url' => $url,
             'is_primary' => $this->is_primary,
         ];
     }

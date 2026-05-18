@@ -47,6 +47,19 @@ return [
             'report' => false,
         ],
 
+        /*
+         * Web-accessible product images (public/products/...).
+         * URLs are served directly; no /storage symlink required.
+         */
+        'public_products' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/'),
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

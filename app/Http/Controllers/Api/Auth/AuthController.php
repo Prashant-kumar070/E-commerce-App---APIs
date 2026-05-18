@@ -46,4 +46,27 @@ class AuthController extends Controller
     {
         return $this->success(new UserResource($request->user()->load('role.permissions')));
     }
+
+    public function updateProfile(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'sometimes|string|max:255',
+            'email' => 'sometimes|email|unique:users,email,' . $request->user()->id,
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:1000',
+            'password' => 'nullable|string|min:6',
+        ]);
+
+        $user = $request->user();
+
+        if (!empty($validated['password'])) {
+            $validated['password'] = \Illuminate\Support\Facades\Hash::make($validated['password']);
+        } else {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return $this->success(new UserResource($user->load('role.permissions')), 'Profile updated successfully.');
+    }
 }

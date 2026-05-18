@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delivery Person Dashboard - SwiftMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002111",
+                        "tertiary-container": "#9e6100",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-fixed-variant": "#005231",
+                        "outline-variant": "#c2c6d9",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#59fead",
+                        "tertiary-fixed": "#ffddba",
+                        "on-tertiary-container": "#fff1e5",
+                        "surface-dim": "#cbdbf5",
+                        "background": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "primary-container": "#0061ff",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#f1f2ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007146",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0052dc",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "secondary-container": "#56fbab",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#424656",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006d43",
+                        "on-primary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#31e193",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "outline": "#737687",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary": "#004bca",
+                        "tertiary": "#7d4b00",
+                        "on-tertiary-fixed": "#2b1700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "4px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "h2": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .status-toggle input:checked + label {
+            background-color: #0061ff;
+            color: #f1f2ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-md">
+<span class="font-h2 text-h2 font-bold text-primary">SwiftMarket</span>
+<nav class="hidden md:flex gap-lg ml-xl">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Deals</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Sell</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Help</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant p-sm cursor-pointer hover:bg-surface-variant rounded-full">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant p-sm cursor-pointer hover:bg-surface-variant rounded-full">favorite</span>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-high px-sm py-xs rounded-full">
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a friendly male delivery professional wearing a clean blue polo shirt. The background is a brightly lit, modern logistics office with soft bokeh. The lighting is crisp and high-key, reflecting a trustworthy and professional corporate identity using a clean blue and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcSE7UxZZ0by3EWiAaFBDxhBQxGZlnqZeLM_Wtpg9tsGPzE2jvRhZcdeAiHdXCWcabDkhg7kWYWn4W7D-1B67oIXqVK4jxx7tGSF4VVHLlstv4-x4RvYxyi_RqNVE4fmu0UFL3cEQmx-WYC8f_NqwYXYRvAcukauQClVOeOPs5s26O6epbWYRjc7RzubHpxVVqW570w0YaBdXvyth6ke6f9iuPuogJdfITbqAXYnkkdYOtZfT6sCufFi4e0VhMuneFW-xMNlOU9TA"/>
+<span class="font-label-md pr-sm hidden md:block">Account</span>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-xxl px-lg md:px-xxl max-w-container-max mx-auto">
+<!-- Dashboard Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface">Assigned Orders</h1>
+<p class="text-on-surface-variant font-body-md">You have 4 active deliveries for today.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-high text-on-surface px-lg py-sm rounded-lg font-label-md flex items-center gap-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">filter_list</span> Filter
+                </button>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md flex items-center gap-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">refresh</span> Refresh
+                </button>
+</div>
+</div>
+<!-- Orders Grid (Optimized for scanning) -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Order Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-lg hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex flex-col gap-xs flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-code text-primary font-bold">#ORD-8821</span>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm uppercase tracking-wider">Priority</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Eleanor Shellstrop</h3>
+<div class="flex items-start gap-sm text-on-surface-variant mt-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<p class="text-body-md">123 Good Place Lane, Neighborhood 1234, Mapleton, CA 90210</p>
+</div>
+</div>
+<!-- Status Control - Large Tap Targets -->
+<div class="flex flex-col gap-sm w-full md:w-auto">
+<span class="font-label-sm text-on-surface-variant px-sm">Update Status:</span>
+<div class="flex flex-wrap gap-xs bg-surface-container-low p-xs rounded-xl">
+<input checked="" class="hidden" id="out-8821" name="status-8821" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="out-8821">
+                            Out for Delivery
+                        </label>
+<input class="hidden" id="arr-8821" name="status-8821" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="arr-8821">
+                            Arrived
+                        </label>
+<input class="hidden" id="del-8821" name="status-8821" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="del-8821">
+                            Delivered
+                        </label>
+</div>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-lg hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex flex-col gap-xs flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-code text-primary font-bold">#ORD-9012</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Chidi Anagonye</h3>
+<div class="flex items-start gap-sm text-on-surface-variant mt-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<p class="text-body-md">456 Moral Philosophy Ave, Study Hall B, Mapleton, CA 90210</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm w-full md:w-auto">
+<span class="font-label-sm text-on-surface-variant px-sm">Update Status:</span>
+<div class="flex flex-wrap gap-xs bg-surface-container-low p-xs rounded-xl">
+<input class="hidden" id="out-9012" name="status-9012" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="out-9012">
+                            Out for Delivery
+                        </label>
+<input checked="" class="hidden" id="arr-9012" name="status-9012" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="arr-9012">
+                            Arrived
+                        </label>
+<input class="hidden" id="del-9012" name="status-9012" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="del-9012">
+                            Delivered
+                        </label>
+</div>
+</div>
+</div>
+<!-- Order Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-lg hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex flex-col gap-xs flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-code text-primary font-bold">#ORD-7734</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Tahani Al-Jamil</h3>
+<div class="flex items-start gap-sm text-on-surface-variant mt-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<p class="text-body-md">1 Mansion Way, High Estate District, Mapleton, CA 90211</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm w-full md:w-auto">
+<span class="font-label-sm text-on-surface-variant px-sm">Update Status:</span>
+<div class="flex flex-wrap gap-xs bg-surface-container-low p-xs rounded-xl">
+<input checked="" class="hidden" id="out-7734" name="status-7734" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="out-7734">
+                            Out for Delivery
+                        </label>
+<input class="hidden" id="arr-7734" name="status-7734" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="arr-7734">
+                            Arrived
+                        </label>
+<input class="hidden" id="del-7734" name="status-7734" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="del-7734">
+                            Delivered
+                        </label>
+</div>
+</div>
+</div>
+<!-- Order Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-lg hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex flex-col gap-xs flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-code text-primary font-bold">#ORD-6623</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface">Jason Mendoza</h3>
+<div class="flex items-start gap-sm text-on-surface-variant mt-sm">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<p class="text-body-md">678 Jacksonville Dr, Apt 4B, Mapleton, CA 90210</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm w-full md:w-auto">
+<span class="font-label-sm text-on-surface-variant px-sm">Update Status:</span>
+<div class="flex flex-wrap gap-xs bg-surface-container-low p-xs rounded-xl">
+<input checked="" class="hidden" id="out-6623" name="status-6623" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="out-6623">
+                            Out for Delivery
+                        </label>
+<input class="hidden" id="arr-6623" name="status-6623" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="arr-6623">
+                            Arrived
+                        </label>
+<input class="hidden" id="del-6623" name="status-6623" type="radio"/>
+<label class="flex-1 text-center py-md px-lg rounded-lg text-label-md font-bold cursor-pointer transition-all hover:bg-surface-container-high" for="del-6623">
+                            Delivered
+                        </label>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Map Preview (Optional UI Flair) -->
+<div class="mt-xxl bg-surface-container-high rounded-2xl overflow-hidden h-[300px] border border-outline-variant relative group">
+<div class="absolute inset-0 bg-black/5 flex items-center justify-center group-hover:bg-transparent transition-colors">
+<button class="bg-surface text-on-surface px-lg py-md rounded-full font-label-md shadow-lg flex items-center gap-sm">
+<span class="material-symbols-outlined">map</span> View All on Map
+                </button>
+</div>
+<img alt="Map view of city" class="w-full h-full object-cover" data-alt="A highly detailed 3D topographic map rendering of a modern urban city district. The map uses a clean, minimalist aesthetic with soft blues and grays, showing precise street layouts and building footprints. High-key, natural morning light highlights the grid structure, creating a professional and functional design look for a high-end logistics application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrzL1kpgQwkc3GN9dR2ElEQRkrxfckq0kOT06ugMmeuQtgj91ZIQLWvsvtpp9pYlo2cgYux0bZzPJ8xK8kbBdHPAu63kIUFjLBQ68ZW1e6YMhyGLzoZowrf6UOh5jEPfshUalT86EaGbU1jFqxJhJJmQUETZXBonUUidxDVhxvKmsu7jT1DJvmspOeaZW3v9KxSZ1gN9NnXt5DjIf1V4o13iB7jPt3jwmxjzJboecaR8kOYmtDcI-XnSBPYlttd8OOUiqiTdtEsbw"/>
+</div>
+</main>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-lg border-t border-outline-variant shadow-md flex justify-around items-center px-md py-sm md:hidden">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest border-t border-outline-variant mt-xxl">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div class="text-left">
+<span class="font-h3 text-h3 font-bold text-primary">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Sell on SwiftMarket</a>
+</div>
+</div>
+</footer>
+</body></html>

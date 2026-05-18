@@ -14,9 +14,11 @@ class Product extends Model
     protected $fillable = [
         'seller_id',
         'name',
+        'category',
         'slug',
         'description',
         'price',
+        'original_price',
         'stock',
         'is_active',
     ];
@@ -25,6 +27,7 @@ class Product extends Model
     {
         return [
             'price' => 'decimal:2',
+            'original_price' => 'decimal:2',
             'is_active' => 'boolean',
         ];
     }

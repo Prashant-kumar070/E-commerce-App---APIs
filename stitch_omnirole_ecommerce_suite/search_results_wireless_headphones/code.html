@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wireless Headphones - SwiftMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#002111",
+                    "tertiary-container": "#9e6100",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#005231",
+                    "outline-variant": "#c2c6d9",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#59fead",
+                    "tertiary-fixed": "#ffddba",
+                    "on-tertiary-container": "#fff1e5",
+                    "surface-dim": "#cbdbf5",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "primary-container": "#0061ff",
+                    "on-tertiary-fixed-variant": "#673d00",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-surface": "#0b1c30",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#f1f2ff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#007146",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-tint": "#0052dc",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#dce9ff",
+                    "on-background": "#0b1c30",
+                    "secondary-container": "#56fbab",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-surface-variant": "#424656",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006d43",
+                    "on-primary-fixed": "#00174b",
+                    "secondary-fixed-dim": "#31e193",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container": "#e5eeff",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed-dim": "#ffb866",
+                    "outline": "#737687",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary": "#004bca",
+                    "tertiary": "#7d4b00",
+                    "on-tertiary-fixed": "#2b1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "base": "4px",
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "code": ["JetBrains Mono"],
+                    "h2": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h1": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-xl">
+<span class="font-h2 text-h2 font-bold text-primary dark:text-primary-fixed-dim">SwiftMarket</span>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Sell</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-body-md text-body-md" href="#">Help</a>
+</div>
+</div>
+<div class="flex-1 max-w-md mx-xl hidden lg:block">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" type="text" value="Wireless Headphones"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex gap-sm">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<button class="flex items-center gap-2 px-4 py-2 text-primary font-label-md">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Cart</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" data-alt="Close-up portrait of a professional businessman in a bright, modern office setting with soft sunlight streaming in. The image is clean and high-fidelity, following a professional corporate aesthetic with subtle depth and a bright light-mode color palette. The subject has a confident expression and is framed in a circular avatar style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABvYXA-bt4njl_pUpxzrcgdtjtjydjnJ6Rl8FMm5NH6lX82K55mf1YdWtXAAj6WcnXS_3MgkKrX5SjMYNRqtw6Yj3VjnkRVcC9fI-N_uLJl0R_JUaGlt0cIw1tJwCoPd1uFuU6O1dQYJjZyYz7PlCIxN8gM4V0LvU0DhypYqMe1uqiPHyoA2krKvXGJ4alBnEMWEchpgg2OdlRCXVFQJ18a6T2OS44u1EgE7igIKm3pJpLTGrdkBkDbZx_Aq9-6i1DRi7SojjYOuo"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-xxl max-w-container-max mx-auto px-lg flex gap-xl">
+<!-- Sidebar Filters -->
+<aside class="w-64 hidden md:block shrink-0">
+<div class="sticky top-24 space-y-xl">
+<div>
+<h3 class="font-h3 text-h3 mb-md">Filters</h3>
+<!-- Category -->
+<div class="mb-lg">
+<p class="font-label-md text-label-md text-on-surface mb-sm">Category</p>
+<div class="space-y-xs">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Wireless Headphones</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Earbuds</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Accessories</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="mb-lg">
+<p class="font-label-md text-label-md text-on-surface mb-sm">Price Range</p>
+<div class="flex items-center gap-2">
+<input class="w-full text-body-sm p-2 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary/20" placeholder="$ Min" type="text"/>
+<span class="text-outline">-</span>
+<input class="w-full text-body-sm p-2 rounded-lg border border-outline-variant focus:ring-2 focus:ring-primary/20" placeholder="$ Max" type="text"/>
+</div>
+</div>
+<!-- Brand -->
+<div class="mb-lg">
+<p class="font-label-md text-label-md text-on-surface mb-sm">Brand</p>
+<div class="space-y-xs">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Sony</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Bose</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Apple</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary">Sennheiser</span>
+</label>
+</div>
+</div>
+<!-- Rating -->
+<div class="mb-lg">
+<p class="font-label-md text-label-md text-on-surface mb-sm">Rating</p>
+<div class="space-y-xs">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px] text-outline">star</span>
+<span class="font-body-sm text-body-sm ml-1">&amp; up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1">
+<!-- Search Results Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<div>
+<h1 class="font-h2 text-h2 mb-xs">Search results for 'Wireless Headphones'</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Showing 1-12 of 154 results</p>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Sort By:</span>
+<select class="bg-surface border border-outline-variant rounded-lg px-4 py-2 font-body-sm text-body-sm focus:ring-2 focus:ring-primary/20 outline-none">
+<option>Popularity</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest First</option>
+<option>Customer Rating</option>
+</select>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Product Card 1 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek, matte black premium wireless over-ear headphones displayed in a minimalist professional studio environment. The lighting is soft and directional, highlighting the smooth textures and ergonomic curves of the product. The color palette is modern and neutral, featuring soft grays and deep shadows to emphasize luxury and high-fidelity sound quality in a clean, contemporary light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxHUtfdet2frgyiLWA1rVEIPjsEXuVk6rVMkEUwyY413zgMEv1rLlMXb9GQ1RIWnnKwWHVOy-kqReWtndiC0dr3RszZO82BFqnZ8UfI32AoQfQ9vXNLFnrA9Q5lUMHJHLXuysEkRUx5fPvqqGdYK_TCY3o2qVyr69HKuXVj14qneotoKXslAREhJ-rBDhzrnISx9fN3sz6zvVwAYg5IdOCqc4TgjqnkoqFx10KVmlC1Scb_rXNcHaKJ_6ce7lYnx7WgCmeF7-pHgw"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors">Sony WH-1000XM5</h3>
+<span class="bg-secondary-container/20 text-on-secondary-container px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Top Rated</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Industry-leading noise cancellation with 8 microphones and Auto NC Optimizer.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-h2 text-h2 text-primary font-bold">$348.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Premium silver and white wireless headphones sitting on a clean, wooden designer desk. The scene is illuminated by natural, airy morning light, creating a professional and inviting atmosphere. The aesthetic is strictly modern and corporate, emphasizing high-end consumer technology through sharp focus and a sophisticated, light-mode background with gentle bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4E6MsILLw7nNTfFmaNsf_iWYn_kofW1W6AQ2unctWCnDS6oWuHEtcj8qTu2ERoncsA2HbgSsg8aqz6MSNJFn3zL50oeADSQ--4qlMznZnC5CowmLloD5Ii1J9RUDDvDSbknyVsrjwGyYE12CYEPXOBzCjTTdaU9jbr0vuNOTodTFxFWym12JBvRg_CBEUI7FsMk6YbW0tZHn54fQzEl48mPMqKdUzxlD5OdJOgBqna6Jq-bdPXqrlzQIaO5VI9_R4irlujk3hyZo"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors mb-xs">Bose QuietComfort Ultra</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Spatial audio for more immersive listening and CustomTune technology.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-h2 text-h2 text-primary font-bold">$429.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist design of high-tech studio headphones in a soft pastel blue finish. The background is a clean, monochromatic surface that complements the product's color. Lighting is high-key and soft, avoiding harsh shadows to maintain a professional and trustworthy consumer electronics vibe. The shot is meticulously composed to showcase industrial design quality and modern elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANQU29yINw4BHggIV7W_kD99ROccuHHtVgizj6S479voedOpBDv_o-Mz6mxy6GPFsqArieSyKzgTP2Cd_UdfyTTBzttrpewGpyaJhNc1sB5zYtzyZO8cBE6PMai5FtBUqNqA9ZCGEUotNjkgpFb8LT8Y0EtL7kXoWt2_fEs91p6l5HqWKPPR1OPXB6cKfTQ9Smuu5bY_R9xSnKVAJev7HASYRJ_WzPLmXshlHj3I9AA3vf2ypX6RewQ33hE_NJdAQIc6zsjBCvcdg"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-3 left-3 bg-error text-white px-3 py-1 rounded-full text-[12px] font-bold">15% OFF</div>
+</div>
+<div class="p-md">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors mb-xs">Sennheiser Momentum 4</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">60-hour battery life and customizable sound via the Smart Control App.</p>
+<div class="flex items-center justify-between mt-auto">
+<div>
+<span class="font-h2 text-h2 text-primary font-bold">$299.95</span>
+<span class="text-on-surface-variant line-through text-sm ml-2">$349.95</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Earbuds" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of sleek, white wireless earbuds resting in their compact charging case on a minimalist glass surface. The lighting is crisp and cool, reflecting the advanced technology within the product. The overall mood is sophisticated and clean, perfectly capturing the aesthetic of high-end portable audio gear in a professional, light-mode studio setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdkaEeK7L2Eukr-5pYl8U_YVJYLEynyWrXCSIU5uoLufXzStWsSB5-YA9Yas7VXpAMJReZ11RWina58KrkjzEXNIc1GdqeM2FVTBO_CAzWhieuKBgXJ3hgVR4uzyhrMjZgcaKie3mGb5Ss0Sv87IKZV0TBB7FwOxsKP75_TkHmVgiA_0cTBaZVfojSXsx2sxrDUCx6NWdiIW5ActaUMoQjMsjZjaiHHCR3gjBkPiOEQDYEtjQcr9egq5LH51eWZbJBxa1EUvcDxxI"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors mb-xs">Apple AirPods Max</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">A perfect balance of exhilarating high-fidelity audio and the magic of AirPods.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-h2 text-h2 text-primary font-bold">$549.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-performance gaming wireless headset with subtle charcoal gray accents and comfortable velvet ear pads. The image is captured in a high-tech gaming environment with soft ambient lighting that highlights the ergonomic features. The professional corporate design language remains through sharp focus and a high-contrast but clean light-mode execution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC63SYW4Dquifw_0B80co1ELBX-AwUNE-9KJancrs1Y2jUUgUsYT6Awfdw_fkK8XcRB89Po-CFZB4ajGoHrPfYDpG70Ul-YcUB17AXikP8DTcKal9jv87MRm6tfBnEfm8oHrXlEsF4TnfE5ZJZ2r7tlAsc5tKIdDiYFjjORUXAqJCrIC1_bAeAkiT8a48K9JUi0Z6ECWIOlWWJO1LXLsyzNYbXl9fy3FXhYc5OJojELepqqrkG0ZkBloFQyw3wjtTQ5NsnuNvVwsNU"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors mb-xs">JBL Tour One M2</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">True Adaptive Noise Cancelling with Smart Ambient and 4-mic superior calls.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-h2 text-h2 text-primary font-bold">$199.95</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.5</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+<div class="aspect-square relative overflow-hidden bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Designer wireless headphones with a rich leather headband and metallic bronze finishes. The product is placed against a textured, light-colored background with professional soft-box lighting. This visual highlights the premium materials and sophisticated craftsmanship of the audio device, maintaining a reliable, frictionless commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9biF7qVF4B-gGjmyzKHqsWnEHt63zu1TbwFRey7F8TQtpmiskEducP2MjqysQ8n7CktF8xJrDaQy6rtiSpsUcCce_N-bOnWCxB2j1PneMDZKvL5fk115DFlpzFUJIr4qsBigLQ3shQlyWbEPCc-9SN732JgQl9Cln14lT4zo-j-M2BCeKvGXJNiqvpafVR65qIRlnIpKcTOiHlIcvQXq94EtTk-yNNSAp8L07tVFrgetqJrvBgChdN9pZ1KRk1k_Ydu4pxH0sR5o"/>
+<button class="absolute top-3 right-3 p-2 bg-surface/80 backdrop-blur-sm rounded-full text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md">
+<h3 class="font-h3 text-h3 group-hover:text-primary transition-colors mb-xs">Beats Studio Pro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md line-clamp-2">Beats’ most powerful and precise over-ear headphones ever with personalized spatial audio.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-h2 text-h2 text-primary font-bold">$349.99</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.6</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-xxl flex justify-center items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-label-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors font-label-md">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg border-t border-outline-variant dark:border-outline shadow-md md:hidden">
+<div class="flex justify-around items-center px-md py-sm">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-sm text-label-sm">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-lg gap-md">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed-dim">SwiftMarket</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 SwiftMarket eCommerce Group</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Sell on SwiftMarket</a>
+</div>
+</div>
+</footer>
+</body></html>

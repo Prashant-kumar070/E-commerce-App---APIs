@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         return $this->paginatedResponse(
-            $this->productService->paginateCatalog($request->only(['search', 'seller_id'])),
+            $this->productService->paginateCatalog($request->only(['search', 'seller_id', 'category', 'is_deal'])),
             ProductResource::class,
             'Product catalog fetched successfully.'
         );
